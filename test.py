@@ -98,9 +98,22 @@ class TestCredentials(unittest.TestCase):
         To check if we can save multiple objects into list
         """
         self.new_credentials.save_credentials()
-        test_user = Credentials ("Twitter","khaleesifan","24hugugugu")
-        test_user.save_credentials()
+        test_credentials = Credentials ("Twitter","khaleesifan","24hugugugu")
+        test_credentials.save_credentials()
         self.assertEqual(len(Credentials.credentials_list),2)
+
+    def test_delete_credentials(self):
+            '''
+            test_delete_contact to test if we can remove credentials from our credentials list
+            '''
+            self.new_credentials.save_credentials()
+            test_credentials = Credentials ("Twitter","khaleesifan","24hugugugu") # new credentials
+            test_credentials.save_credentials()
+
+            self.new_credentials.delete_credentials()# Deleting a credentials object
+            self.assertEqual(len(Credentials.credentials_list),1)
+
+    
 
 
 
