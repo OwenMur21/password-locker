@@ -38,3 +38,26 @@ class User:
                     return True
 
         return False    
+
+class Credentials:
+    """
+    Class that generates new instances of credentials
+    """
+
+    credentials_list = [] #Empty credential 
+
+    def __init__(self,acc_name,login_name,pword):
+        """
+        __init__ method that defines properties for our objects
+
+        Args:
+            acc_name: New credentials acc_name.
+            login_name: New credentials login_name.
+            pword: New credentials pword.
+        """
+
+        self.acc_name = acc_name
+        self.login_name = login_name
+        self.pword = pword
+
+
