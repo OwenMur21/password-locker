@@ -74,11 +74,33 @@ class TestCredentials(unittest.TestCase):
         """
         self.new_credentials = Credentials ("Reddit","ozzyman","23iiihihs") #create user object
 
+    def tearDown(self):
+        """
+        tearDown method that does the clean-up after each test has run
+        """ 
+        Credentials.credentials_list = []
+
     def test_init(self):
         """
         test_init test case to test if the object is initialized properly
         """
         self.assertEqual(self.new_credentials.acc_name,"Reddit")
+
+    def test_save_credentials(self):
+        """
+        test to check if the credentials object is saved on credentials list
+        """
+        self.new_credentials.save_credentials() #save user
+        self.assertEqual(len(Credentials.credentials_list),1)
+
+    def test_save_multiple_credentials(self):
+        """
+        To check if we can save multiple objects into list
+        """
+        self.new_credentials.save_credentials()
+        test_user = Credentials ("Twitter","khaleesifan","24hugugugu")
+        test_user.save_credentials()
+        self.assertEqual(len(Credentials.credentials_list),2)
 
 
 
