@@ -15,6 +15,13 @@ class TestUser(unittest.TestCase):
         Set up method to run before each test case.
         """
         self.new_user = User ("Ozzie","21ozwellyeah") #create user object
+
+
+    def tearDown(self):
+        """
+        tearDown method that does the clean-up after each test has run
+        """ 
+        User.user_list = []
         
 
     def test_init(self):
@@ -29,6 +36,14 @@ class TestUser(unittest.TestCase):
         """
         self.new_user.save_user() #save user
         self.assertEqual(len(User.user_list),1)
-
+    
+    def test_save_multiple_user(self):
+        """
+        To check if we can save multiple objects into list
+        """
+        self.new_user.save_user()
+        test_user = User ("Test","34huhuhuhu")
+        test_user.save_user()
+        self.assertEqual(len(User.user_list),2)
 if __name__ == '__main__':
     unittest.main()
