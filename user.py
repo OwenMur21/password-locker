@@ -82,3 +82,17 @@ class Credentials:
         """
         alphabet = string.ascii_letters + string.digits
         password = ''.join(choice(alphabet) for i in range(8))
+    @classmethod
+    def find_by_acc_name(cls,acc_name):
+        '''
+        Method that takes in a number and returns a credential that matches that account name.
+
+        Args:
+            acc_name: Account name to search for
+        Returns :
+            Credential of account that matches the account name.
+        '''
+
+        for credentials in cls.credentials_list:
+            if credentials.acc_name == acc_name:
+                return credentials
