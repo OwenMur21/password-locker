@@ -1,5 +1,5 @@
 import unittest 
-# import pyperclip
+import pyperclip
 from user import User , Credentials
 
 class TestUser(unittest.TestCase):
@@ -155,6 +155,9 @@ class TestCredentials(unittest.TestCase):
     #     self.new_credentials.save_credentials()
     #     Credentials.copy_login_name("Twitter")
     #     self.assertEqual(self.new_credentials.login_name,pyperclip.paste())
+
+    
+
 
 if __name__ == '__main__':
     unittest.main()

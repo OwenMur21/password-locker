@@ -1,5 +1,5 @@
 import string
-# import pyperclip
+import pyperclip
 from random import choice
 
 class User:
@@ -123,3 +123,5 @@ class Credentials:
     # def copy_login_name(cls,acc_name):
     #     credentials_found = Credentials.find_by_acc_name(acc_name)
     #     pyperclip.copy(credentials_found.login_name)
+
+  
