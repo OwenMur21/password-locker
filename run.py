@@ -110,6 +110,10 @@ def main():
                 print(f"Password.......{search_user.password}")
             else:
                  print("Account does not exist")
+
+        elif short_code =='ex' :
+            print("Bye...")
+            break
             
 
         elif short_code == 'in':
@@ -121,85 +125,85 @@ def main():
             if check_existing_users(username):
                 logged_user = find_user(username)
                 print(f"Welcome {logged_user.username}")
+                print('\n')
+                while True:
+                    print("Use these other short codes : cc - create a new credential, gp - to generate password, dc-to display credential, fc-to find credential, rc-to remove credential, copc-to copy credential,ex -exit the user list ")
+                    in_short_code2 = input().lower()
+                    
+
+                    if in_short_code2 == 'cc':
+                        print('\n')
+                        print("Fill in the information below to create a new credential")
+                        print('\n')
+                        print("Enter the account name e.g twiiter")
+                        acc_name=input()
+                        print("Enter your login name for the account")
+                        login_name=input()
+                        print("Enter your password for the account")
+                        pword=input()
+                        save_credentials(create_credential(acc_name,login_name,pword))
+                        print('\n')
+                        print(f"You have created a new credential for {acc_name}.")
+                        print('\n')
+
+                    elif in_short_code2 == 'gp':
+                        print('\n')
+                        print("Your new generated password is: \n")
+                        pword= gen_password(self)
+                        print(pword)
+                        
+
+                    elif in_short_code2 == 'dc':
+                        print('/n')
+                        if display_credentials():
+                            print("Here is a list of all your credentials")
+                            print('\n')
+                            for credential in display_credentials():
+                                print(f"{credential.acc_name}, {credential.login_name}, {credential.pword}")
+                                print('\n')
+                        else:
+                            print("\n Nothing to display")
+
+                    elif in_short_code2 == 'fc':
+                        print("Enter the account name you want to search for")
+
+                        search_acc_name = input()
+                        if check_existing_credentials(search_acc_name):
+                            search_credential = find_credential(search_acc_name)
+                            print(f"{search_credential.acc_name} {search_credential.login_name}")
+                            print('-' * 20)
+
+                            print(f"Password.......{search_credential.pword}")
+                        
+                        else:
+                            print("That credential does not exist")
+
+                
+
+                    elif in_short_code2 == 'rc':
+                        print("Enter the account name you want to delete")
+
+                        del_acc_name = input()
+                        if check_existing_credentials(del_acc_name):
+                            search_del_credential = find_credential(del_acc_name)
+                            del_credential = del_credential(search_del_credential)
+                            print(f"Deleted credentials of {acc_name} with the {del_acc_name}  ")
+                        
+                        else:
+                            print("That contact does not exist")
+
+                    elif in_short_code2 =='ex' :
+                            print("Bye...")
+                            break
+
+
             else:
                 print("Account does not exist")
 
-            while True:
-                print('\n')
-                print("Use these other short codes : cc - create a new credential, gp - to generate password, dc-to display credential, fc-to find credential, rc-to remove credential, copc-to copy credential,ex -exit the user list ")
-                in_short_code2 = input().lower()
-                
+        else:
+            print("Incorrect shortcode")
 
-                if in_short_code2 == 'cc':
-                    print('\n')
-                    print("Fill in the information below to create a new credential")
-                    print('\n')
-                    print("Enter the account name e.g twiiter")
-                    acc_name=input()
-                    print("Enter your login name for the account")
-                    login_name=input()
-                    print("Enter your password for the account")
-                    pword=input()
-                    save_credentials(create_credential(acc_name,login_name,pword))
-                    print('\n')
-                    print(f"You have created a new credential for {acc_name}.")
-                    print('\n')
-
-                elif in_short_code2 == 'gp':
-                    print('\n')
-                    print("Your new generated password is: \n")
-                    pword= gen_password(self)
-                    print(pword)
-                    
-
-                elif in_short_code2 == 'dc':
-                    print('/n')
-                    if display_credentials():
-                        print("Here is a list of all your credentials")
-                        print('\n')
-                        for credential in display_credentials():
-                            print(f"{credential.acc_name}, {credential.login_name}, {credential.pword}")
-                            print('\n')
-                    else:
-                            print("\n Nothing to display")
-
-                elif in_short_code2 == 'fc':
-                    print("Enter the account name you want to search for")
-
-                    search_acc_name = input()
-                    if check_existing_credentials(search_acc_name):
-                        search_credential = find_credential(search_acc_name)
-                        print(f"{search_credential.acc_name} {search_credential.login_name}")
-                        print('-' * 20)
-
-                        print(f"Password.......{search_credential.pword}")
-                       
-                    else:
-                        print("That credential does not exist")
-
-                
-
-                elif in_short_code2 == 'rc':
-                    print("Enter the account name you want to delete")
-
-                    del_acc_name = input()
-                    if check_existing_credentials(del_acc_name):
-                        search_del_credential = find_credential(del_acc_name)
-                        del_credential = del_credential(search_del_credential)
-                        print(f"Deleted credentials of {acc_name} with the {del_acc_name}  ")
-                       
-                    else:
-                        print("That contact does not exist")
-
-
-
-                elif in_short_code2 =='ex' :
-                    print("Bye...")
-                    break
-
-                else:
-                        print("I really didn't get that. Please use shortcode, Thank you.") 
-
+        
                 
 if __name__ == '__main__':
     main()
