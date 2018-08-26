@@ -1,5 +1,6 @@
 #!/usr/bin/env python3.6
 import string
+import random
 from random import choice
 from user import User , Credential
 def create_user(username,password):
@@ -47,13 +48,13 @@ def del_credential(credential):
     '''
     credential.delete_credential()
 
-def gen_password(self):
-    """
-    gen_password method that generates random passwords
-    """
-    alphabet = string.ascii_letters + string.digits
-    password = ''.join(choice(alphabet) for i in range(8))
-    return password
+# def gen_password(self):
+#     """
+#     gen_password method that generates random passwords
+#     """
+#     alphabet = string.ascii_letters + string.digits
+#     password = ''.join(choice(alphabet) for i in range(8))
+#     return password
 
 def find_credential(acc_name):
     '''
@@ -127,7 +128,7 @@ def main():
                 print(f"Welcome {logged_user.username}")
                 print('\n')
                 while True:
-                    print("Use these other short codes : cc - create a new credential, gp - to generate password, dc-to display credential, fc-to find credential, rc-to remove credential, copc-to copy credential,ex -exit the user list ")
+                    print("Use these other short codes : cc - create a new credential, gp - to generate password, dc-to display credential, fc-to find credential, rc-to remove credential, ex -exit the user list ")
                     in_short_code2 = input().lower()
                     
 
@@ -147,11 +148,11 @@ def main():
                         print('\n')
 
                     elif in_short_code2 == 'gp':
-                        print('\n')
-                        print("Your new generated password is: \n")
-                        pword= gen_password(self)
-                        print(pword)
-                        
+                        alphabet = string.ascii_letters + string.digits
+                        password = ''.join(choice(alphabet) for i in range(8))
+                        print(f"Your new generated password is: {password} \n")
+                      
+
 
                     elif in_short_code2 == 'dc':
                         print('/n')
