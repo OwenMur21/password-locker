@@ -24,10 +24,10 @@ The deleting a credential function and copying a credential function are not wor
 
 This application was made using the Visual Code text editor and uses python3.6 programming language.
 The "Welcome to password-locker" text was generated online on: https://fsymbols.com
-## Support and Contact Details
 
+## Support and Contact Details
 Incase of additions or if you run into any issues, my email address is: owenmuriithi@gmail.com
 
 ## License
 This project is licensed under the terms of the MIT license. Copyright (c) 2018 Owen Muriithi Mathu
-See the [LICENSE.md](LICENSE.md) file for details
+
