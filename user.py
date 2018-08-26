@@ -92,13 +92,13 @@ class Credential:
         '''
         Credential.credential_list.remove(self)
 
-    def gen_password(self):
-        """
-        gen_password method that generates random passwords
-        """
-        alphabet = string.ascii_letters + string.digits
-        password = ''.join(choice(alphabet) for i in range(8))
-        return password
+    # def gen_password(self):
+    #     """
+    #     gen_password method that generates random passwords
+    #     """
+    #     alphabet = string.ascii_letters + string.digits
+    #     password = ''.join(choice(alphabet) for i in range(8))
+    #     return password
         
     @classmethod
     def find_by_acc_name(cls,acc_name):

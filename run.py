@@ -82,7 +82,12 @@ def display_credentials():
 
 
 def main():
-    print("WELCOME TO PASSWORD LOCKER.")
+    print('''
+    ✄┏┳━┳┳━┳┓┏━┳━┳━┳━┳━┓┏━━┳━┓┏━┳━━┳━━┳━━┳┳━┳┳━┳━┳━━┓╋╋┏┓┏━┳━┳┳┳━┳━┓
+    ✄┃┃┃┃┃┳┫┃┃┏┫┃┃┃┃┃┃┳┛┗┓┏┫┃┃┃╋┃┏┓┃━━┫━━┫┃┃┃┃┃┃╋┣┓┓┣━━┫┃┃┃┃┏┫┏┫┳┫╋┃
+    ✄┃┃┃┃┃┻┫┗┫┗┫┃┃┃┃┃┃┻┓╋┃┃┃┃┃┃┏┫┣┫┣━━┣━━┃┃┃┃┃┃┃┓╋┻┛┣━━┫┗┫┃┃┗┫┗┫┻┫┓┫
+    ✄┗━┻━┻━┻━┻━┻━┻┻━┻┻━┛╋┗┛┗━┛┗┛┗┛┗┻━━┻━━┻━┻━┻━┻┻┻━━┛╋╋┗━┻━┻━┻┻┻━┻┻┛
+           ''')
     print('\n')
 
     while True:
@@ -153,7 +158,6 @@ def main():
                         print(f"Your new generated password is: {password} \n")
                       
 
-
                     elif in_short_code2 == 'dc':
                         print('/n')
                         if display_credentials():
@@ -187,11 +191,12 @@ def main():
                         del_acc_name = input()
                         if check_existing_credentials(del_acc_name):
                             search_del_credential = find_credential(del_acc_name)
-                            del_credential = del_credential(search_del_credential)
-                            print(f"Deleted credentials of {acc_name} with the {del_acc_name}  ")
+                            del_credential(search_del_credential)
+                         
+                            print(f"Deleted credentials of {del_acc_name}")
                         
                         else:
-                            print("That contact does not exist")
+                            print("That credential does not exist")
 
                     elif in_short_code2 =='ex' :
                             print("Bye...")
