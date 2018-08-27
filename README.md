@@ -1,7 +1,7 @@
 # Password-Locker Application
 
 This is an application that stores user's passwords and usernames/login names they use to access various websites e.g Reddit
-Once you log in, you have an option to create a credential, generate a random password, find a specific credential you saved and display all saved credentials.
+Once you log in, you have an option to create a credential, generate a random password, find a specific credential you saved, delete a credential you no longer need and display all saved credentials.
 
 ## Getting Started
 
@@ -17,7 +17,7 @@ You need to have installed python3.6 and using pip, install pyperclip
 
 ### Known bugs
 
-The deleting a credential function and copying a credential function are not working yet, so they have been temporarily disabled.
+The copying a credential function is not working yet, so it has been temporarily disabled.
 
 
 ### Technologies used
