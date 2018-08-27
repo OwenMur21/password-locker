@@ -42,11 +42,11 @@ def save_credentials(credential):
     credential.save_credential()
 
 
-# def del_credential(credential):
-#     '''
-#     Function to delete a credential
-#     '''
-#     credential.delete_credential()
+def del_credential(acc_name):
+    '''
+    Function to delete a credential
+    '''
+    Credential.del_credential(acc_name)
 
 def find_credential(acc_name):
     '''
@@ -125,7 +125,7 @@ def main():
                 print(f"Welcome {logged_user.username}")
                 print('\n')
                 while True:
-                    print("Use these other short codes : cc - create a new credential, gp - to generate password, dc-to display credential, fc-to find credential, ex -exit the user list ")
+                    print("Use these other short codes : cc - create a new credential, gp - to generate password, dc-to display credential, rc - to remove credential, fc-to find credential, ex -exit the user list ")
                     in_short_code2 = input().lower()
                     
 
@@ -156,7 +156,9 @@ def main():
                             print("Here is a list of all your credentials so far:")
                             print('\n')
                             for credential in display_credentials():
-                                print(f"{credential.acc_name}, {credential.login_name}, {credential.pword}")
+                                print(f"Account: {credential.acc_name}")
+                                print(f"Login name: {credential.login_name}")
+                                print(f"Password: {credential.pword}")
                                 print('\n')
                         else:
                             print("\n You do not have any saved credentials")
@@ -176,18 +178,18 @@ def main():
 
                 
 
-                    # elif in_short_code2 == 'rc':
-                    #     print("Enter the account name you want to delete")
+                    elif in_short_code2 == 'rc':
+                        print("Enter the account name you want to delete")
 
-                    #     del_acc_name = input()
-                    #     if check_existing_credentials(del_acc_name):
-                    #         search_del_credential = find_credential(del_acc_name)
-                    #         del_credential(search_del_credential)
+                        del_acc_name = input()
+                        if check_existing_credentials(del_acc_name):
+                            search_del_credential = find_credential(del_acc_name)
+                            del_credential(search_del_credential)
                          
-                    #         print(f"Deleted credentials of {del_acc_name}")
+                            print(f"Deleted credentials of {del_acc_name}")
                         
-                    #     else:
-                    #         print("That credential does not exist")
+                        else:
+                            print("That credential does not exist")
 
                     elif in_short_code2 =='ex' :
                             print("Going back to user options....")
